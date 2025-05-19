@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Flow\Types\Tests\Unit\Value;
 
-use Flow\ETL\Exception\InvalidArgumentException;
+use Flow\Types\Exception\InvalidArgumentException;
 use Flow\Types\Value\Uuid;
 use PHPUnit\Framework\TestCase;
 use Ramsey\Uuid\Uuid as RamseyUuid;

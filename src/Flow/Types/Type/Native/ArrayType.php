@@ -14,6 +14,9 @@ use Flow\Types\Type\Logical\XML\XMLConverter;
  */
 final readonly class ArrayType implements Type
 {
+    /**
+     * @return array<array-key, mixed>
+     */
     public function assert(mixed $value) : array
     {
         if ($this->isValid($value)) {
@@ -23,6 +26,9 @@ final readonly class ArrayType implements Type
         throw InvalidTypeException::value($value, $this);
     }
 
+    /**
+     * @return array<array-key, mixed>
+     */
     public function cast(mixed $value) : array
     {
         if ($this->isValid($value)) {
@@ -31,7 +37,9 @@ final readonly class ArrayType implements Type
 
         try {
             if (\is_string($value) && (\str_starts_with($value, '{') || \str_starts_with($value, '['))) {
-                return \json_decode($value, true, 512, \JSON_THROW_ON_ERROR);
+                $decoded = \json_decode($value, true, 512, \JSON_THROW_ON_ERROR);
+
+                return \is_array($decoded) ? $decoded : throw new CastingException($value, $this);
             }
 
             if ($value instanceof \DOMDocument) {
@@ -39,7 +47,9 @@ final readonly class ArrayType implements Type
             }
 
             if (\is_object($value)) {
-                return \json_decode(\json_encode($value, \JSON_THROW_ON_ERROR), true, 512, \JSON_THROW_ON_ERROR);
+                $encoded = \json_decode(\json_encode($value, \JSON_THROW_ON_ERROR), true, 512, \JSON_THROW_ON_ERROR);
+
+                return \is_array($encoded) ? $encoded : throw new CastingException($value, $this);
             }
 
             return (array) $value;

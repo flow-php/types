@@ -9,7 +9,7 @@ use Flow\Types\Exception\InvalidTypeException;
 use Flow\Types\Type;
 
 /**
- * @implements Type<boolean>
+ * @implements Type<bool>
  */
 final readonly class BooleanType implements Type
 {

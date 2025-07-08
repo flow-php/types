@@ -5,13 +5,12 @@ declare(strict_types=1);
 namespace Flow\Types\Type\Logical;
 
 use function Flow\Types\DSL\type_time;
-use DateInterval;
 use Flow\Types\Exception\{CastingException};
 use Flow\Types\Exception\InvalidTypeException;
 use Flow\Types\Type;
 
 /**
- * @implements Type<DateInterval>
+ * @implements Type<\DateInterval>
  */
 final readonly class TimeType implements Type
 {

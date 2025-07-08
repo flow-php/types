@@ -8,7 +8,7 @@ use function Flow\Types\DSL\{type_boolean, type_float, type_integer, type_string
 use Flow\Types\Type;
 
 /**
- * @implements Type<string|int|bool|float>
+ * @implements Type<bool|float|int|string>
  */
 final readonly class ScalarType implements Type
 {

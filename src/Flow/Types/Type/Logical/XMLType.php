@@ -5,13 +5,12 @@ declare(strict_types=1);
 namespace Flow\Types\Type\Logical;
 
 use function Flow\Types\DSL\{type_string, type_xml};
-use DOMDocument;
 use Flow\Types\Exception\{CastingException};
 use Flow\Types\Exception\InvalidTypeException;
 use Flow\Types\Type;
 
 /**
- * @implements Type<DOMDocument>
+ * @implements Type<\DOMDocument>
  */
 final readonly class XMLType implements Type
 {

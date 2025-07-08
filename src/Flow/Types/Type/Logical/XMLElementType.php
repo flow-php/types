@@ -5,13 +5,12 @@ declare(strict_types=1);
 namespace Flow\Types\Type\Logical;
 
 use function Flow\Types\DSL\type_instance_of;
-use DOMElement;
 use Flow\Types\Exception\{CastingException};
 use Flow\Types\Exception\InvalidTypeException;
 use Flow\Types\Type;
 
 /**
- * @implements Type<DOMElement>
+ * @implements Type<\DOMElement>
  */
 final readonly class XMLElementType implements Type
 {
